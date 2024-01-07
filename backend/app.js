@@ -24,7 +24,7 @@ const port = 8000;
 connectDB();
 
 const allowedOrigins = [
-  "https://tracker-eight-fawn.vercel.app/",
+  "https://tracker-eight-fawn.vercel.app",
   "http://localhost:8000",
   "http://localhost:3001"
    
