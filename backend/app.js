@@ -9,7 +9,7 @@ import transactionRoutes from "./Routers/Transactions.js";
 import userRoutes from "./Routers/userRouter.js";
 import path from "path";
 
-dotenv.config({ path: "./config/config.env" });
+dotenv.config();
 const app = express();
 
 const port = 8000;
@@ -20,10 +20,9 @@ const allowedOrigins = [
   "https://tracker-eight-fawn.vercel.app/",
   "http://localhost:8000",
   "http://localhost:3001"
-  
-  // add more origins as needed
+   
 ];
-
+server.use(express.static(path.resolve(__dirname, 'build')));
 // Middleware
 app.use(express.json());
 app.use(
@@ -42,7 +41,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Router
 app.use("/api/v1", transactionRoutes);
 app.use("/api/auth", userRoutes);
-
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve('build', 'index.html'))
+);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
