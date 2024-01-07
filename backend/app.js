@@ -17,8 +17,7 @@ const port = 8000;
 connectDB();
 
 const allowedOrigins = [
-  "https://main.d1sj7cd70hlter.amplifyapp.com",
-  "https://expense-tracker-app-three-beryl.vercel.app",
+  "https://tracker-xudc.vercel.app/",
   "http://localhost:8000",
   "http://localhost:3001"
   // add more origins as needed
