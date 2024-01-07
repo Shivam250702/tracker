@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export const connectDB = async (req, res) => {
     try {
-        const db = "mongodb+srv://shivamdotsingh:sv1zLDP2DTcJkVvk@cluster0.8dczfvl.mongodb.net/?retryWrites=true&w=majority"
+        const db = process.env.MONGO_URL
 
         const { connection } = await mongoose.connect(db, {
             useNewUrlParser: true,

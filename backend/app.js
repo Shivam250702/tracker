@@ -8,6 +8,13 @@ import morgan from "morgan";
 import transactionRoutes from "./Routers/Transactions.js";
 import userRoutes from "./Routers/userRouter.js";
 import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Now you can use __dirname as before
 
 dotenv.config();
 const app = express();
@@ -22,7 +29,7 @@ const allowedOrigins = [
   "http://localhost:3001"
    
 ];
-server.use(express.static(path.resolve(__dirname, 'build')));
+app.use(express.static(path.resolve(__dirname, 'build')));
 // Middleware
 app.use(express.json());
 app.use(
